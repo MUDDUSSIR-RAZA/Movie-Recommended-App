@@ -1,0 +1,81 @@
+/* Media Queries */
+
+@media (max-width: 690px) and (min-width: 481px) {
+  .oneDropDown select {
+    width: 75vw;
+  }
+
+  #search {
+    width: 12vw;
+  }
+
+  header h1 {
+    font-size: large;
+  }
+}
+
+
+@media only screen and (max-width: 480px) {
+  header h1 {
+    font-size: large;
+  }
+
+  header {
+    height: 10px;
+  }
+
+  .oneDropDown select {
+    width: 75vw;
+  }
+
+  #search {
+    width: 13vw;
+  }
+
+  #rankHeadingSection {
+    width: 70px;
+  }
+
+  #movieHeadingSection {
+    width: calc(100vw - 140px - 10vw);
+  }
+
+  #yearHeadingSection {
+    width: 70px;
+  }
+
+  .rankSection {
+    width: 70px;
+  }
+
+  .movieSection {
+    width: calc(100vw - 140px - 10vw);
+  }
+
+  .yearSection {
+    width: 70px;
+  }
+
+  #rankList li,
+  #yearList li {
+    height: 90px;
+  }
+
+  #movieList li div{
+    padding-left: 4px;
+
+}
+
+  #movieList li img {
+    width: 70px;
+    height: 90px;
+}
+
+#movieList h4 {
+  font-size: 15px;
+}
+
+#movieList p {
+  font-size: 12px;
+}
+}
