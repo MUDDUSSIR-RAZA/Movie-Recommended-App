@@ -1,0 +1,151 @@
+body {
+    font-family: "Orbitron", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.gray {
+    color: #949090;
+}
+
+header {
+    position: fixed;
+    width: 98%;
+    height: 30px;
+    padding: 20px;
+    background-color: #1da6c1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    padding-top: 70px;
+}
+
+.container {
+    margin: 4vh 5vw;
+}
+
+.threeDropDown {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+select {
+    text-align: center;
+    width: 25vw;
+    text-align: center;
+    font-family: "Orbitron", sans-serif;
+    font-size: 15px;
+}
+
+.oneDropDown {
+    display: flex;
+    justify-content: space-between;
+}
+
+.oneDropDown select {
+    width: 80vw;
+    text-align: left;
+}
+
+#search {
+    height: 3.5vh;
+    margin: 16px 0 0 0;
+    width: 7vw;
+    border-radius: 5px;
+}
+
+.headingSections {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 40px;
+    /* text-align: center; */
+
+}
+
+#rankHeadingSection {
+    text-align: center;
+    width: 100px;
+}
+
+#movieHeadingSection {
+    width: calc(100vw - 200px - 10vw);
+}
+
+#yearHeadingSection {
+    width: 100px;
+}
+
+.rankMovies {
+    /* border: solid black; */
+    height: calc(100vh - 341px);
+    overflow: auto;
+    display: flex;
+}
+
+li {
+    list-style: none;
+}
+
+#rankList li,
+#yearList li {
+    /* border: red solid; */
+    height: 109px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#rankList,
+#yearList {
+    margin: 0;
+    padding: 0;
+
+}
+
+#movieList {
+    margin: 4px 5px;
+    padding: 0;
+    /* border: red solid; */
+}
+
+#movieList li {
+    display: flex;
+    flex-direction: row;
+}
+
+#movieList li div{
+    padding-left: 7px;
+
+}
+
+#movieList li img {
+    width: 70px;
+    height: 105px;
+}
+
+/* .rankSection,
+.movieSection,
+.yearSection {
+    border: black solid;
+} */
+
+.rankSection {
+    text-align: center;
+    width: 100px;
+}
+
+.movieSection {
+    width: calc(100vw - 200px - 10vw);
+}
+
+.yearSection {
+    width: 100px;
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./app.js"></script>
+</head>
+
+
+<body>
+    <header>
+        <h1>
+            Movie Recommendation App
+        </h1>
+    </header>
+    <main>
+        <div class="container">
+            <div class="threeDropDown">
+                <label for="Genre" class="gray">GENRE
+                    <br>
+                    <select name="Genre" id="genre">
+                        <option value="" disabled selected>All</option>
+                    </select>
+                </label>
+
+                <label for="Year" class="gray">YEAR
+                    <br>
+                    <select name="Year" id="year">
+                        <option value="" disabled selected>All</option>
+                    </select>
+                </label>
+
+                <label for="language" class="gray">LANGUAGE
+                    <br>
+                    <select name="language" id="language">
+                        <option value="" disabled selected>All</option>
+                    </select>
+                </label>
+            </div>
+
+            <br>
+
+            <div class="oneDropDown">
+                <label for="rating" class="gray">RATING
+                    <br>
+                    <select name="rating" id="rating">
+                        <option value="" disabled selected>All</option>
+                    </select>
+                </label>
+                <button id="search">Search</button>
+            </div>
+
+            <br>
+
+            <hr class="gray">
+            <div class="headingSections">
+                <h5 class="gray" id="rankHeadingSection">RANK</h5>
+                <h5 class="gray" id="movieHeadingSection">MOVIE</h5>
+                <h5 class="gray" h5 id="yearHeadingSection">YEAR</h5>
+            </div>
+            <hr class="gray">
+
+            <div class="rankMovies">
+                <section class="rankSection">
+                    <ul id="rankList">
+                        <li>1</li>
+                    </ul>
+                </section>
+
+                <section class="movieSection">
+                    <ul id="movieList">
+                        <li>
+                            <img src="https://www.themoviedb.org/t/p/original/pgqgaUx1cJb5oZQQ5v0tNARCeBp.jpg"
+                                alt="img">
+                            <div>
+                                <div>
+                                    <h4>
+                                        Godzilla vs Kong
+                                    </h>
+                                </div>
+                                <div>
+                                    <p>
+                                        pg-13,
+                                        Action,Science,Fiction
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+
+                <section class="yearSection">
+                    <ul id="yearList">
+                        <li>
+                            2021
+                        </li>
+                    </ul>
+                </section>
+            </div>
+
+        </div>
+    </main>
+</body>
+
+</html>
