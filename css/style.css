@@ -52,6 +52,15 @@ select {
     text-align: left;
 }
 
+span {
+    border-radius: 2px;
+    text-align: center;
+    border-style: groove;
+    padding: 2px;
+    border-width: 1px;
+    margin-right: 7px;
+}
+
 #search {
     height: 3.5vh;
     margin: 16px 0 0 0;
@@ -70,19 +79,22 @@ select {
 
 #rankHeadingSection {
     text-align: center;
-    width: 100px;
+    width: 9vw;
 }
 
 #movieHeadingSection {
-    width: calc(100vw - 200px - 10vw);
+    width: calc(100vw - 28vw);
+    padding-left: 5px;
 }
 
 #yearHeadingSection {
-    width: 100px;
+    width: 9vw;
+    text-align: center;
 }
 
 .rankMovies {
-    height: calc(100vh - 341px);
+    /* height: calc(100vh - 341px); */
+    height: calc(100vh - 43.8vh);
     overflow: auto;
     display: flex;
 }
@@ -93,7 +105,6 @@ li {
 
 #rankList li,
 #yearList li {
-    /* border: red solid; */
     height: 109px;
     text-align: center;
     display: flex;
@@ -112,7 +123,6 @@ li {
 #movieList {
     margin: 4px 5px;
     padding: 0;
-    /* border: red solid; */
 }
 
 #movieList li {
@@ -120,7 +130,7 @@ li {
     flex-direction: row;
 }
 
-#movieList li div{
+#movieList li div {
     padding-left: 7px;
 
 }
@@ -130,21 +140,15 @@ li {
     height: 105px;
 }
 
-/* .rankSection,
-.movieSection,
-.yearSection {
-    border: black solid;
-} */
-
 .rankSection {
     text-align: center;
-    width: 100px;
+    width: 9vw;
 }
 
 .movieSection {
-    width: calc(100vw - 200px - 10vw);
+    width: calc(100vw - 28vw);
 }
 
 .yearSection {
-    width: 100px;
+    width: 9vw;
 }
