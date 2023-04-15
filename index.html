@@ -2,27 +2,44 @@
 <html lang="en">
 
 <head>
+    <!-- Set the character encoding and compatibility mode -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Set the viewport to ensure proper rendering on mobile devices -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Set the title of the page -->
     <title>Document</title>
+
+    <!-- Link to Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+
+    <!-- Link to external CSS stylesheet -->
     <link rel="stylesheet" href="./css/style.css">
+
+    <!-- Link to external JavaScript file -->
     <script src="./app.js"></script>
 </head>
 
 
 <body>
+    <!-- Create a header section for the page -->
     <header>
         <h1>
             Movie Recommendation App
         </h1>
     </header>
+
+    <!-- Create a main section for the page -->
     <main>
+        <!-- Create a container div to hold the content -->
         <div class="container">
+            <!-- Create a section for the three dropdown menus -->
             <div class="threeDropDown">
+                <!-- Create a label and dropdown menu for the genre selection -->
                 <label for="Genre" class="gray">GENRE
                     <br>
                     <select name="Genre" id="genre">
@@ -30,6 +47,7 @@
                     </select>
                 </label>
 
+                <!-- Create a label and dropdown menu for the year selection -->
                 <label for="Year" class="gray">YEAR
                     <br>
                     <select name="Year" id="year">
@@ -37,6 +55,7 @@
                     </select>
                 </label>
 
+                <!-- Create a label and dropdown menu for the language selection -->
                 <label for="language" class="gray">LANGUAGE
                     <br>
                     <select name="language" id="language">
@@ -47,26 +66,33 @@
 
             <br>
 
+            <!-- Create a section for the rating dropdown menu and search button -->
             <div class="oneDropDown">
+                <!-- Create a label and dropdown menu for the rating selection -->
                 <label for="rating" class="gray">RATING
                     <br>
                     <select name="rating" id="rating">
                         <option value="" disabled selected>All</option>
                     </select>
                 </label>
+                <!-- Create a search button -->
                 <button id="search">Search</button>
             </div>
 
             <br>
 
+            <!-- Create a horizontal line to separate the header from the movie results -->
             <hr class="gray">
+            <!-- Create a section for the header of the movie results table -->
             <div class="headingSections">
                 <h5 class="gray" id="rankHeadingSection">RANK</h5>
                 <h5 class="gray" id="movieHeadingSection">MOVIE</h5>
                 <h5 class="gray" h5 id="yearHeadingSection">YEAR</h5>
             </div>
+            <!-- Create another horizontal line to separate the header from the movie results -->
             <hr class="gray">
 
+            <!-- Create a section to hold the movie results -->
             <div class="rankMovies">
                 <section class="rankSection">
                     <ul id="rankList">
@@ -74,6 +100,7 @@
                     </ul>
                 </section>
 
+                <!-- Section for movie posters and details -->
                 <section class="movieSection">
                     <ul id="movieList">
                         <li>
@@ -82,24 +109,25 @@
                             <div>
                                 <div>
                                     <h4>
-                                        Godzilla vs Kong
-                                    </h>
+                                        Godzilla vs Kong <!-- Placeholder for movie title -->
+                                        </h>
                                 </div>
                                 <div>
                                     <p>
                                         pg-13,
-                                        Action,Science,Fiction
+                                        Action,Science,Fiction <!-- Placeholder for movie rating and genre -->
                                     </p>
                                 </div>
                             </div>
-                        </li>
+                        </li> <!-- Placeholder for movie -->
                     </ul>
                 </section>
 
+                <!-- Section for movie release years -->
                 <section class="yearSection">
                     <ul id="yearList">
                         <li>
-                            2021
+                            2021 <!-- Placeholder for movie release year -->
                         </li>
                     </ul>
                 </section>
@@ -107,6 +135,3 @@
 
         </div>
     </main>
-</body>
-
-</html>
