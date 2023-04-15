@@ -54,41 +54,50 @@
         displayResult(results);
     }
 
-        const rankList = document.getElementById("rankList");
-        const movieList = document.getElementById("movieList");
-        const yearList = document.getElementById("yearList");
+    const rankList = document.getElementById("rankList");
+    const movieList = document.getElementById("movieList");
+    const yearList = document.getElementById("yearList");
 
 
-        function displayResult(results) {
-            movieList.innerHTML = "";
-            results.forEach(function (movie) {
-                const li = document.createElement("li");
-                const movieItem = `
+    function displayResult(results, index) {
+
+
+        rankList = "";
+        const rankLiList = document.createElement("li");
+        const rankItem = index + 1;
+        rankLiList.innerHTML = rankItem;
+        rankList.appendChild(rankLiList);
+
+
+        movieList.innerHTML = "";
+        results.forEach(function (movie) {
+            const li = document.createElement("li");
+            const movieItem = `
             <img src="https://www.themoviedb.org/t/p/original${movie.poster_path}"
             alt="img">
             <div>
             <div><h4>${movie.title}</h></div>
             <div><p>${movie.certification} ${movie.genres.map(function (genres) {
-                    return " " + genres
-                }).join(",")}</p></div>
-        </div>
+                return " " + genres
+            }).join(",")}</p></div>
+            </div>
       `;
-                li.innerHTML = movieItem;
-                movieList.appendChild(li);
+            li.innerHTML = movieItem;
+            movieList.appendChild(li);
 
 
-                results.forEach(function (movie) {
-                    yearList.innerHTML = "";
-                    const liList = document.createElement("li");
-                    let liListYear = new Date(movie.release_date).getFullYear();
-                    const yearItem = liListYear;
-                    liList.innerHTML = yearItem;
-                    yearList.appendChild(liListYear);
+            results.forEach(function (movie) {
+                yearList.innerHTML = "";
+                const liList = document.createElement("li");
+                let liListYear = new Date(movie.release_date).getFullYear();
+                const yearItem = liListYear;
+                liList.innerHTML = yearItem;
+                yearList.appendChild(liListYear);
 
-                })
             })
-        }
-    
+        })
+    }
+
 
     btn.addEventListener("click", search);
 
