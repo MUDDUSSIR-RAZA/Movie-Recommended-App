@@ -8,6 +8,14 @@ body {
     color: #949090;
 }
 
+.margin {
+    margin: 0 0 7px 0;
+}
+
+.margin0 {
+    margin: 0;
+}
+
 header {
     position: fixed;
     width: 98%;
@@ -52,13 +60,14 @@ select {
     text-align: left;
 }
 
-span {
+.certification {
     border-radius: 2px;
     text-align: center;
     border-style: groove;
     padding: 2px;
     border-width: 1px;
     margin-right: 7px;
+    margin-bottom: 8px;
 }
 
 #search {
@@ -68,13 +77,23 @@ span {
     border-radius: 5px;
 }
 
+#search:hover {
+    background: #bebcbc;
+    cursor: pointer;
+    transition: all 1s;
+}
+
+#search:active {
+    background-color: rgb(111, 12, 141);
+    transition: all 1s;
+
+}
+
 .headingSections {
     display: flex;
     flex-direction: row;
     align-items: center;
     height: 40px;
-    /* text-align: center; */
-
 }
 
 #rankHeadingSection {
