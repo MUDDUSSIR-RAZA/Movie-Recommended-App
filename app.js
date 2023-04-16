@@ -1,136 +1,3 @@
-// (async function () {
-//     const response = await fetch("./data.json");
-//     const movieData = await response.json();
-
-
-//     let btn = document.getElementById("search");
-//     let genreSelect = document.getElementById("genre");
-//     let yearSelect = document.getElementById("year");
-//     let languageSelect = document.getElementById("language");
-//     let ratingSelect = document.getElementById("rating");
-
-//     movieData.forEach(function (movie) {
-//         movie.genres.forEach(function (genre) {
-//             const option = document.createElement("option");
-//             option.value = genre;
-//             option.textContent = genre;
-//             genreSelect.appendChild(option);
-//         });
-
-//         let releaseYear = new Date(movie.release_date).getFullYear();
-//         const yearOption = document.createElement("option");
-//         yearOption.value = releaseYear;
-//         yearOption.textContent = releaseYear;
-//         yearSelect.appendChild(yearOption);
-
-//         const languageOption = document.createElement("option");
-//         languageOption.value = movie.original_language;
-//         languageOption.textContent = movie.original_language;
-//         languageSelect.appendChild(languageOption);
-
-//         const ratingOption = document.createElement("option");
-//         ratingOption.value = movie.vote_average;
-//         ratingOption.textContent = movie.vote_average;
-//         ratingSelect.appendChild(ratingOption);
-//     });
-
-
-
-//     function search() {
-//         let genreValue = genreSelect.value.toLowerCase();
-//         let yearValue = yearSelect.value.toLowerCase();
-//         let languageValue = languageSelect.value.toLowerCase();
-//         let ratingValue = ratingSelect.value.toLowerCase();
-
-
-//         const results = movieData.filter(function (data) {
-//             return (data.genres.join("").toLowerCase().includes(genreValue) &&
-//                 data.release_date.includes(yearValue) &&
-//                 data.original_language.includes(languageValue) &&
-//                 data.vote_average.toString().includes(ratingValue)
-//             )
-
-//         });
-//         displayResult(results);
-//     }
-
-//     const rankList = document.getElementById("rankList");
-//     const movieList = document.getElementById("movieList");
-//     const yearList = document.getElementById("yearList");
-
-
-//     function displayResult(results, index) {
-
-
-//         rankList = "";
-//         const rankLiList = document.createElement("li");
-//         const rankItem = index + 1;
-//         rankLiList.innerHTML = rankItem;
-//         rankList.appendChild(rankLiList);
-
-
-//         movieList.innerHTML = "";
-//         results.forEach(function (movie) {
-//             const li = document.createElement("li");
-//             const movieItem = `
-//             <img src="https://www.themoviedb.org/t/p/original${movie.poster_path}"
-//             alt="img">
-//             <div>
-//             <div><h4>${movie.title}</h></div>
-//             <div><p>${movie.certification} ${movie.genres.map(function (genres) {
-//                 return " " + genres
-//             }).join(",")}</p></div>
-//             </div>
-//       `;
-//             li.innerHTML = movieItem;
-//             movieList.appendChild(li);
-
-
-//             results.forEach(function (movie) {
-//                 yearList.innerHTML = "";
-//                 const liList = document.createElement("li");
-//                 let liListYear = new Date(movie.release_date).getFullYear();
-//                 const yearItem = liListYear;
-//                 liList.innerHTML = yearItem;
-//                 yearList.appendChild(liListYear);
-
-//             })
-//         })
-//     }
-
-
-//     btn.addEventListener("click", search);
-
-// })();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 (async function () {
 
     // Fetching movie data from JSON file
@@ -138,128 +5,199 @@
     const movieData = await response.json();
 
     // Retrieving all the select elements from the DOM
-    let btn = document.getElementById("search");
     let genreSelect = document.getElementById("genre");
     let yearSelect = document.getElementById("year");
     let languageSelect = document.getElementById("language");
     let ratingSelect = document.getElementById("rating");
+    let rankList = document.getElementById("rankList");
+    let movieList = document.getElementById("movieList");
+    let yearList = document.getElementById("yearList");
 
-    // Looping through movie data to populate the select elements with options
+
+    /////////////////////////////////////////////////////////For year drop down list\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+    let genArr = [];
     movieData.forEach(function (movie) {
-
-        // Creating and adding options to the genre select element
-        movie.genres.forEach(function (genre) {
-            const option = document.createElement("option");
-            option.value = genre;
-            option.textContent = genre;
-            genreSelect.appendChild(option);
-        });
-
-        // Creating and adding options to the year select element
-        let releaseYear = new Date(movie.release_date).getFullYear();
-        const yearOption = document.createElement("option");
-        yearOption.value = releaseYear;
-        yearOption.textContent = releaseYear;
-        yearSelect.appendChild(yearOption);
-
-        // Creating and adding options to the language select element
-        const languageOption = document.createElement("option");
-        languageOption.value = movie.original_language;
-        languageOption.textContent = movie.original_language;
-        languageSelect.appendChild(languageOption);
-
-        // Creating and adding options to the rating select element
-        const ratingOption = document.createElement("option");
-        ratingOption.value = movie.vote_average;
-        ratingOption.textContent = movie.vote_average;
-        ratingSelect.appendChild(ratingOption);
+        let genre = movie.genres;
+        if (Array.isArray(genre)) {
+            for (i = 0; i < genre.length; i++) {
+                let oneMovie = genre[i];
+                if (!genArr.includes(oneMovie)) {
+                    genArr.push(oneMovie);
+                }
+            }
+        }
+        else {
+            if (!genArr.includes(genre)) {
+                genArr.push(genre);
+            }
+        }
     });
-
-    // Defining the search function
-    function search() {
-        // Retrieving the selected values from the select elements
-        let genreValue = genreSelect.value.toLowerCase();
-        let yearValue = yearSelect.value.toLowerCase();
-        let languageValue = languageSelect.value.toLowerCase();
-        let ratingValue = ratingSelect.value.toLowerCase();
-
-        // Filtering the movie data based on the selected values
-        const results = movieData.filter(function (data) {
-            return (data.genres.join("").toLowerCase().includes(genreValue) &&
-                data.release_date.includes(yearValue) &&
-                data.original_language.includes(languageValue) &&
-                data.vote_average.toString().includes(ratingValue)
-            )
-        });
-        // Displaying the search results
-        displayResult(results);
+    for (i = 0; i < genArr.length; i++) {
+        let onlyOneGenre = genArr[i];
+        const genreOption = document.createElement("option");
+        genreOption.value = onlyOneGenre;
+        genreOption.textContent = onlyOneGenre;
+        genreSelect.appendChild(genreOption);
     }
 
-    // Retrieving the required list elements from the DOM
-    const rankList = document.getElementById("rankList");
-    const movieList = document.getElementById("movieList");
-    const yearList = document.getElementById("yearList");
 
-    // Function to display the search results
-    function displayResult(results, index) {
 
-        // Clearing the previous content of the rank list
-        rankList = "";
 
-        // Creating and adding rank list item to the rank list
-        const rankLiList = document.createElement("li");
-        const rankItem = index + 1;
-        rankLiList.innerHTML = rankItem;
-        rankList.appendChild(rankLiList);
+    /////////////////////////////////////////////////////////For year drop down list\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
-        // Clearing the previous content of the movie list
-        movieList.innerHTML = "";
+    let yearArr = [];
+    movieData.forEach(function (movie) {
+        let releaseYear = new Date(movie.release_date).getFullYear();
+        if (!yearArr.includes(releaseYear)) {
+            yearArr.push(releaseYear);
+        }
+    });
+    let filterYear = yearArr.sort(function (a, b) {
+        return a - b
+    })
+    for (i = 0; i < filterYear.length; i++) {
+        let onlyOneYear = filterYear[i];
+        const yearOption = document.createElement("option");
+        yearOption.value = onlyOneYear;
+        yearOption.textContent = onlyOneYear;
+        yearSelect.appendChild(yearOption);
+    }
 
-        // Looping through the search results to display movie information
+
+    /////////////////////////////////////////////////////////For Language drop down list\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+    let langArr = [];
+    movieData.forEach(function (movie) {
+        if (!langArr.includes(movie.original_language)) {
+            langArr.push(movie.original_language);
+        }
+    });
+    for (i = 0; i < langArr.length; i++) {
+        let onlyOneRating = langArr[i];
+        const languageOption = document.createElement("option");
+        languageOption.value = onlyOneRating;
+        languageOption.textContent = onlyOneRating;
+        languageSelect.appendChild(languageOption);
+    }
+
+
+    /////////////////////////////////////////////////////////For Rating drop down list\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+    let ratingArr = [];
+    movieData.forEach(function (movie) {
+        if (!ratingArr.includes(movie.vote_average)) {
+            ratingArr.push(movie.vote_average);
+        }
+    });
+    let filterRating = ratingArr.sort(function (a, b) {
+        return a - b
+    })
+    for (i = 0; i < filterRating.length; i++) {
+        let onlyOneRating = filterRating[i];
+        const ratingOption = document.createElement("option");
+        ratingOption.value = onlyOneRating;
+        ratingOption.textContent = onlyOneRating;
+        ratingSelect.appendChild(ratingOption);
+    }
+
+
+    /////////////////////////////////////////////////////////Filtered search\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+    function filteredSearch() {
+        let filteredMovies = movieData;
+
+        if (genreSelect.value !== "all") {
+            filteredMovies = filteredMovies.filter(movie => {
+                if (Array.isArray(movie.genres)) {
+                    for (i = 0; i < movie.genres.length; i++) {
+                        let genreLenth = movie.genres[i];
+                        if (movie.genres.includes(genreLenth)) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    }
+                } else if (movie.genres === genreSelect.value) {
+                    return true;
+                } else {
+                    return false;
+                }
+            });
+        }
+
+        if (yearSelect.value !== "all") {
+            filteredMovies = filteredMovies.filter(movie => {
+                let movieYear = new Date(movie.release_date).getFullYear();
+                if (movieYear === yearSelect.value);
+                return true;
+            }
+            )
+        }
+
+        if (languageSelect.value !== "all") {
+            filteredMovies = filteredMovies.filter(movie => movie.original_language === languageSelect.value);
+        }
+
+        if (ratingSelect.value != "all") {
+            filteredMovies = filteredMovies.filter(movie => movie.vote_average >= parseFloat(ratingSelect.value));
+        }
+
+        displayMovies(filteredMovies);
+    }
+
+
+
+    let rankItem = 1;
+    function displayMovies(results) {
+  console.log(results);
         results.forEach(function (movie) {
-            const li = document.createElement("li");
+
+            const rankLi = document.createElement("li");
+            rankLi.innerHTML = rankItem;
+            rankList.appendChild(rankLi);
+
+            const movieLi = document.createElement("li");
             const movieItem = `
-            <img src="https://www.themoviedb.org/t/p/original${movie.poster_path}"
-            alt="img">
-            <div>
-            <div><h4>${movie.title}</h></div>
-            <div><p>${movie.certification} ${movie.genres.map(function (genres) {
+                <img src="https://www.themoviedb.org/t/p/original${movie.poster_path}"
+                alt="${movie.tagline}">
+                <div>
+                <div><h4>${movie.title}</h></div>
+                <div><p><span class="certification">${movie.certification}</span><span> ${movie.genres.map(function (genres) {
                 return " " + genres
-            }).join(",")}</p></div>
-            </div>
-      `;
+            }).join(",")}</span></p></div>
+                </div>
+          `;
 
-            // Set the inner HTML of the list item to the movie data HTML string
-            li.innerHTML = movieItem;
 
-            // Add the list item to the movie list element
-            movieList.appendChild(li);
+            movieLi.innerHTML = movieItem;
+            movieList.appendChild(movieLi);
 
-            // Loop through each movie in the search results
-            results.forEach(function (movie) {
 
-                // Clear the year list element
-                yearList.innerHTML = "";
+            const liList = document.createElement("li");
 
-                // Create a new list item element
-                const liList = document.createElement("li");
+            let liListYear = new Date(movie.release_date).getFullYear();
+            liList.innerHTML = liListYear;
+            yearList.appendChild(liList);
 
-                // Get the release year of the current movie
-                let liListYear = new Date(movie.release_date).getFullYear();
-
-                // Set the text content of the list item to the release year
-                const yearItem = liListYear;
-                liList.innerHTML = yearItem;
-
-                // Add the list item to the year list element
-                yearList.appendChild(liListYear);
-
-            })
-
+            rankItem++;
         })
     }
-    
-    
-    btn.addEventListener("click", search);
-    
-    }) ();
+
+
+    genreSelect.addEventListener("change", filteredSearch);
+    yearSelect.addEventListener("change", filteredSearch);
+    languageSelect.addEventListener("change", filteredSearch);
+    ratingSelect.addEventListener("change", filteredSearch);
+
+    filteredSearch();
+
+
+})();
