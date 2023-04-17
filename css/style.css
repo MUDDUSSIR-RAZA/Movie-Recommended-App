@@ -56,7 +56,7 @@ select {
 }
 
 .oneDropDown select {
-    width: 80vw;
+    width: 90vw;
     text-align: left;
 }
 
@@ -70,31 +70,6 @@ select {
     margin-bottom: 8px;
 }
 
-#search {
-    height: 3.5vh;
-    margin: 16px 0 0 0;
-    width: 9vw;
-    border-radius: 5px;
-}
-
-#search:hover {
-    background: #bebcbc;
-    cursor: pointer;
-    transition: all 1s;
-}
-
-#search:active {
-    background-color: rgb(111, 12, 141);
-    transition: all 1s;
-
-}
-
-.headingSections {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    height: 40px;
-}
 
 #rankHeadingSection {
     text-align: center;
@@ -112,51 +87,8 @@ select {
 }
 
 .rankMovies {
-    /* height: calc(100vh - 341px); */
-    height: calc(100vh - 43.8vh);
-    overflow: auto;
-    display: flex;
-}
-
-li {
-    list-style: none;
-}
-
-#rankList li,
-#yearList li {
-    height: 109px;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
-#rankList,
-#yearList {
-    margin: 0;
-    padding: 0;
-
-}
-
-#movieList {
-    margin: 4px 5px;
-    padding: 0;
-}
-
-#movieList li {
-    display: flex;
-    flex-direction: row;
-}
-
-#movieList li div {
-    padding-left: 7px;
-
-}
-
-#movieList li img {
-    width: 70px;
-    height: 105px;
+    height: calc(100vh - 38.8vh);
+    /* overflow: auto; */
 }
 
 .rankSection {
@@ -164,10 +96,44 @@ li {
     width: 9vw;
 }
 
+.movieSection img {
+    flex: 0 0 auto;
+    margin: .5vh .5vw;
+    width: 70px;
+    height: 105px;
+}
+
 .movieSection {
+    display: flex;
+    align-items: center;
     width: calc(100vw - 28vw);
+}
+
+.movie-details {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.movie-details div {
+    margin: 10px 0 0 0;
+}
+
+div h4,
+p {
+    margin: 0 0 0 5px;
+}
+
+p {
+    margin: 0;
+}
+
+p span {
+    padding: 5px;
+    margin: 5px;
 }
 
 .yearSection {
     width: 9vw;
+    text-align: center;
 }

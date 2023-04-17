@@ -1,14 +1,6 @@
 /* Media Queries */
 
 @media (max-width: 690px) and (min-width: 481px) {
-  .oneDropDown select {
-    width: 75vw;
-  }
-
-  #search {
-    width: 12vw;
-  }
-
   header h1 {
     font-size: 26px;
   }
@@ -24,64 +16,41 @@
     height: 10px;
   }
 
-  .oneDropDown select {
-    width: 72vw;
-  }
-
-  #search {
-    width: 15vw;
-  }
-
   label {
     font-size: 12px;
   }
 
   #rankHeadingSection {
     font-size: 13px;
-    width: 15vw;
+    width: 12vw;
   }
 
   #movieHeadingSection {
-    width: calc(100vw - 25vw);
+    width: calc(100vw - 30vw);
     font-size: 13px;
   }
 
   #yearHeadingSection {
-    width: 15vw;
+    width: 20vw;
     font-size: 13px;
   }
 
+  h4,
+  span,
+  .yearSection,
   .rankSection {
-    width: 15vw;
+    font-size: 12+px;
+  }
+
+  .rankSection {
+    width: 18vw;
   }
 
   .movieSection {
-    width: calc(100vw - 25vw);
+    width: calc(100vw - 38vw);
   }
 
   .yearSection {
-    width: 15vw;
-  }
-
-  #rankList li,
-  #yearList li {
-    height: 90px;
-  }
-
-  #movieList li div {
-    padding-left: 4px;
-  }
-
-  #movieList li img {
-    width: 70px;
-    height: 90px;
-  }
-
-  #movieList h4 {
-    font-size: 15px;
-  }
-
-  #movieList p {
-    font-size: 12px;
+    width: 20vw;
   }
 }

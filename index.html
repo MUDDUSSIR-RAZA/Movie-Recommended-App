@@ -58,7 +58,7 @@
                     </select>
                 </label>
 
-                <!-- Create a label and dropdown menu for the language selection -->
+
                 <label for="language" class="gray">LANGUAGE
                     <br>
                     <select name="language" id="language">
@@ -69,57 +69,69 @@
 
             <br>
 
-            <!-- Create a section for the rating dropdown menu and search button -->
+
             <div class="oneDropDown">
-                <!-- Create a label and dropdown menu for the rating selection -->
+
                 <label for="rating" class="gray">RATING
                     <br>
                     <select name="rating" id="rating">
                         <option value="all">All</option>
                     </select>
                 </label>
-                <!-- Create a search button -->
-                <button id="search">Search</button>
+
             </div>
 
             <br>
 
-            <!-- Create a horizontal line to separate the header from the movie results -->
             <hr class="gray margin0">
-            <!-- Create a section for the header of the movie results table -->
-            <div class="headingSections">
-                <h5 class="gray" id="rankHeadingSection">RANK</h5>
-                <h5 class="gray" id="movieHeadingSection">MOVIE</h5>
-                <h5 class="gray" h5 id="yearHeadingSection">YEAR</h5>
-            </div>
-            <!-- Create another horizontal line to separate the header from the movie results -->
+
+
+            <table>
+                <tr>
+                    <th id="rankHeadingSection">
+                        RANK
+                    </th>
+                    <th id="movieHeadingSection">
+                        MOVIE
+                    </th>
+                    <th id="yearHeadingSection">
+                        YEAR
+                    </th>
+                </tr>
+            </table>
+
             <hr class="gray margin">
 
-            <!-- Create a section to hold the movie results -->
+
             <div class="rankMovies">
-                <section class="rankSection">
-                    <ul id="rankList">
-                        
-                    </ul>
-                </section>
-
-                <!-- Section for movie posters and details -->
-                <section class="movieSection">
-                    <ul id="movieList">
-                       
-                    </ul>
-                </section>
-
-                <!-- Section for movie release years -->
-                <section class="yearSection">
-                    <ul id="yearList">
-                       
-                    </ul>
-                </section>
+                <table id="table">
+                </table>
             </div>
-
         </div>
     </main>
 </body>
 
 </html>
+            <!-- <tr>
+                <td class="rankSection">
+                    1
+                </td>
+                <td class="movieSection">
+                    <img src="https://www.themoviedb.org/t/p/original/pgqgaUx1cJb5oZQQ5v0tNARCeBp.jpg"
+                        alt="img">
+                    <div class="movie-details border">
+                        <div>
+                            <h4>Godzilla vs Kong</h4>
+                        </div>
+                        <div>
+                            <p>
+                                <span class="certification">pg-13</span>
+                               <span id="text">Action,Science,Fiction</span> 
+                            </p>
+                        </div>
+                    </div>
+                </td>
+                <td class="yearSection">
+                    2021
+                </td>
+            </tr> -->

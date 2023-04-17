@@ -9,10 +9,7 @@
     let yearSelect = document.getElementById("year");
     let languageSelect = document.getElementById("language");
     let ratingSelect = document.getElementById("rating");
-    let rankList = document.getElementById("rankList");
-    let movieList = document.getElementById("movieList");
-    let yearList = document.getElementById("yearList");
-
+    let table = document.getElementById("table");
 
     /////////////////////////////////////////////////////////For year drop down list\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
@@ -111,7 +108,11 @@
 
 
 
+    let rankItem = 1;
     function filteredSearch() {
+        rankItem = 1;
+        table.innerHTML = "";
+
         let filteredMovies = movieData;
 
         if (genreSelect.value !== "all") {
@@ -119,7 +120,7 @@
                 if (Array.isArray(movie.genres)) {
                     for (i = 0; i < movie.genres.length; i++) {
                         let genreLenth = movie.genres[i];
-                        if (movie.genres.includes(genreLenth)) {
+                        if (genreLenth === genreSelect.value) {
                             return true;
                         } else {
                             return false;
@@ -127,17 +128,16 @@
                     }
                 } else if (movie.genres === genreSelect.value) {
                     return true;
-                } else {
-                    return false;
                 }
             });
         }
 
         if (yearSelect.value !== "all") {
             filteredMovies = filteredMovies.filter(movie => {
-                let movieYear = new Date(movie.release_date).getFullYear();
-                if (movieYear === yearSelect.value);
-                return true;
+                let movieYear = new Date(movie.release_date).getFullYear().toString();
+                if (movieYear === yearSelect.value) {
+                    return true;
+                }
             }
             )
         }
@@ -155,37 +155,42 @@
 
 
 
-    let rankItem = 1;
     function displayMovies(results) {
-  console.log(results);
+        console.log(results)
         results.forEach(function (movie) {
+            const row = document.createElement("tr");
+            const tdRank = document.createElement("td");
+            tdRank.className = "rankSection";
+            tdRank.innerHTML = rankItem;
+            row.appendChild(tdRank);
 
-            const rankLi = document.createElement("li");
-            rankLi.innerHTML = rankItem;
-            rankList.appendChild(rankLi);
 
-            const movieLi = document.createElement("li");
+            const tdMovie = document.createElement("td");
+            tdMovie.className = "movieSection";
             const movieItem = `
                 <img src="https://www.themoviedb.org/t/p/original${movie.poster_path}"
                 alt="${movie.tagline}">
-                <div>
-                <div><h4>${movie.title}</h></div>
-                <div><p><span class="certification">${movie.certification}</span><span> ${movie.genres.map(function (genres) {
+                <div  class="movie-details">
+                <div><h4>${movie.title}</h4></div>
+                <div><p><span class="certification">${movie.certification}</span><span id="text"> ${movie.genres.map(function (genres) {
                 return " " + genres
             }).join(",")}</span></p></div>
                 </div>
           `;
 
 
-            movieLi.innerHTML = movieItem;
-            movieList.appendChild(movieLi);
+            tdMovie.innerHTML = movieItem;
+            row.appendChild(tdMovie);
 
 
-            const liList = document.createElement("li");
+            const tdYear = document.createElement("td");
+            tdYear.className = "yearSection";
+            let ListYear = new Date(movie.release_date).getFullYear();
+            tdYear.innerHTML = ListYear;
+            row.appendChild(tdYear);
 
-            let liListYear = new Date(movie.release_date).getFullYear();
-            liList.innerHTML = liListYear;
-            yearList.appendChild(liList);
+            table.appendChild(row);
+
 
             rankItem++;
         })
