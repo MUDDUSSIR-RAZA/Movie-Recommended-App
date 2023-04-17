@@ -113,7 +113,8 @@
         rankItem = 1;
         table.innerHTML = "";
 
-        let filteredMovies = movieData;
+        let filteredMovies = [];
+        filteredMovies = movieData;
 
         if (genreSelect.value !== "all") {
             filteredMovies = filteredMovies.filter(movie => {
