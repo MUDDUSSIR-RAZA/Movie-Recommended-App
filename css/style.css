@@ -88,7 +88,6 @@ select {
 
 .rankMovies {
     height: calc(100vh - 38.8vh);
-    /* overflow: auto; */
 }
 
 .rankSection {
@@ -107,6 +106,7 @@ select {
     display: flex;
     align-items: center;
     width: calc(100vw - 28vw);
+    overflow: auto;
 }
 
 .movie-details {
