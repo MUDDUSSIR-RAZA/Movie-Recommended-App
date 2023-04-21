@@ -92,11 +92,12 @@
   }
 
   .popup {
-    top: 95%;
+    top: 90%;
     background-color: #15b3dfeb;
     padding: 8px;
     border: 1px solid #ff00e1;
     border-radius: 6px;
+    width: 66vw;
   }
 }
 
