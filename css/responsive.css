@@ -23,6 +23,15 @@
   #yearHeadingSection {
     font-size: 15px;
   }
+
+  .popup {
+    top: 95%;
+    background-color: #15b3dfb6;
+    padding: 10px;
+    border: 1px solid #00c8ff;
+    box-shadow: 0 0px 20px rgba(0, 0, 0, .6);
+    border-radius: 7px;
+  }
 }
 
 
@@ -80,6 +89,14 @@
 
   .yearSection {
     width: 20vw;
+  }
+
+  .popup {
+    top: 95%;
+    background-color: #15b3dfeb;
+    padding: 8px;
+    border: 1px solid #ff00e1;
+    border-radius: 6px;
   }
 }
 

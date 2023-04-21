@@ -1,6 +1,5 @@
 (async function () {
 
-
     // This code fetches the data from the data.json file and stores it in the movieData variable.
     // The fetch function returns a Promise that resolves with a Response object representing the data.
     const response = await fetch("data.json");
@@ -15,6 +14,7 @@
     const yearSelect = document.getElementById("year");
     const languageSelect = document.getElementById("language");
     const ratingSelect = document.getElementById("rating");
+    const popupContainer = document.getElementById("popup-container");
 
     // Get the table element from the DOM
     const table = document.getElementById("table");
@@ -75,7 +75,7 @@
     // Set the initial value of rankItem to 1, which will be used to display the rank of each movie in the table.
     let rankItem = 1;
 
-    // This function is called when the user clicks the "Search" button or when a filter criteria is selected. 
+    /////////////////////// This function is called when the user clicks the "Search" button or when a filter criteria is selected.\\\\\\\\\\\\\\\\\
     function filteredSearch() {
         // Reset rankItem to 1 and clear the table before adding filtered movies to it.
         rankItem = 1;
@@ -124,9 +124,8 @@
 
 
 
-    // This function is called to display a list of movies in the table.
+    /////////////////////////////////// This function is called to display a list of movies in the table.\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
     function displayMovies(results) {
-        console.log(results); // logs the movie results array to the console
 
         // loops through each movie object in the results array
         results.forEach(function (movie) {
@@ -143,18 +142,6 @@
             // creates a new table data element for the movie details
             const tdMovie = document.createElement("td");
             tdMovie.className = "movieSection";
-
-            //     const movieItem = `
-            //         <img src="https://www.themoviedb.org/t/p/original${movie.poster_path}"
-            //         alt="${movie.tagline}">
-            //             <div  class="movie-details">
-            //             <div><h4>${movie.title}</h4></div>
-            //             <div><p><span class="certification">${movie.certification}</span><span id="text"> ${movie.genres.map(function (genres) {
-            //             return " " + genres
-            //         }).join(",")}</span></p></div>
-            //             </div>
-            //   `;
-
 
             // checks if the movie has multiple genres
             if (movie.genres.lenght > 1) {
@@ -215,8 +202,25 @@
             }
         })
 
-    }
+        // Create a new popup element and add it to the container
+        const popup = document.createElement("div");
+        popup.className = "popup";
+        if (rankItem > 1) {
+            popup.textContent = `
+        ${rankItem - 1 + " RESULTS FOUND"} 
+        `;
+        } else {
+            popup.textContent = `
+        ${"Unfortunately, we couldn't find what you were looking for, but we're constantly improving our website to better serve you."} 
+        `;
+        }
+        popupContainer.appendChild(popup);
 
+        // After 2 seconds, remove the popup from the container
+        setTimeout(() => {
+            popupContainer.removeChild(popup);
+        }, 3000);
+    }
 
     // Add event listeners to each of the dropdown menus, so that the filteredSearch function is called whenever the user changes a value.
     genreSelect.addEventListener("change", filteredSearch);
