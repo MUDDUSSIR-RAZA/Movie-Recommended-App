@@ -171,6 +171,12 @@
 
                 table.appendChild(row); // adds the current row to the table element
 
+                // creates a new table data element for the horizontal line
+                const tdLine = document.createElement("td");
+                tdLine.setAttribute("colspan", "3"); // sets the colspan attribute to the number of columns in the table
+                tdLine.innerHTML = "<hr>"; // assigns a horizontal line to the tdLine element
+                table.appendChild(tdLine); // appends the tdLine element to the table element
+
                 rankItem++; // increments the rankItem value by 1
 
             } else { // if the movie has only one genre
@@ -197,6 +203,12 @@
                 row.appendChild(tdYear); // adds the tdYear element to the current row
 
                 table.appendChild(row); // adds the current row to the table element
+
+                // creates a new table data element for the horizontal line
+                const tdLine = document.createElement("td");
+                tdLine.setAttribute("colspan", "3"); // sets the colspan attribute to the number of columns in the table
+                tdLine.innerHTML = "<hr>"; // assigns a horizontal line to the tdLine element
+                table.appendChild(tdLine); // appends the tdLine element to the table element
 
                 rankItem++; // increments the rankItem value by 1
             }
