@@ -144,45 +144,9 @@
             tdMovie.className = "movieSection";
 
             // checks if the movie has multiple genres
-            if (movie.genres.lenght > 1) {
 
-                // creates the HTML markup for the movie item with multiple genres
-                const movieItem = `
-                <img src="https://www.themoviedb.org/t/p/original${movie.poster_path}"
-                alt="${movie.tagline}">
-                    <div  class="movie-details">
-                    <div><h4>${movie.title}</h4></div>
-                    <div><p><span class="certification">${movie.certification}</span><span id="text"> ${movie.genres.map(function (genres) {
-                    return " " + genres
-                }).join(",")}</span></p></div>
-                    </div>
-              `;
-
-                // assigns the HTML markup to the tdMovie element
-                tdMovie.innerHTML = movieItem;
-                row.appendChild(tdMovie); // adds the tdMovie element to the current row
-
-                // creates a new table data element for the movie year
-                const tdYear = document.createElement("td");
-                tdYear.className = "yearSection";
-                let ListYear = new Date(movie.release_date).getFullYear();
-                tdYear.innerHTML = ListYear;
-                row.appendChild(tdYear); // adds the tdYear element to the current row
-
-                table.appendChild(row); // adds the current row to the table element
-
-                // creates a new table data element for the horizontal line
-                const tdLine = document.createElement("td");
-                tdLine.setAttribute("colspan", "3"); // sets the colspan attribute to the number of columns in the table
-                tdLine.innerHTML = "<hr>"; // assigns a horizontal line to the tdLine element
-                table.appendChild(tdLine); // appends the tdLine element to the table element
-
-                rankItem++; // increments the rankItem value by 1
-
-            } else { // if the movie has only one genre
-
-                // creates the HTML markup for the movie item with one genre
-                const movieItem = `
+            // creates the HTML markup for the movie item with multiple genres
+            const movieItem = `
                 <img src="https://www.themoviedb.org/t/p/original${movie.poster_path}"
                 alt="${movie.tagline}">
                     <div  class="movie-details">
@@ -191,27 +155,27 @@
                     </div>
               `;
 
-                // assigns the HTML markup to the tdMovie element
-                tdMovie.innerHTML = movieItem;
-                row.appendChild(tdMovie); // adds the tdMovie element to the current row
+            // assigns the HTML markup to the tdMovie element
+            tdMovie.innerHTML = movieItem;
+            row.appendChild(tdMovie); // adds the tdMovie element to the current row
 
-                // creates a new table data element for the movie year
-                const tdYear = document.createElement("td");
-                tdYear.className = "yearSection";
-                let ListYear = new Date(movie.release_date).getFullYear();
-                tdYear.innerHTML = ListYear;
-                row.appendChild(tdYear); // adds the tdYear element to the current row
+            // creates a new table data element for the movie year
+            const tdYear = document.createElement("td");
+            tdYear.className = "yearSection";
+            let ListYear = new Date(movie.release_date).getFullYear();
+            tdYear.innerHTML = ListYear;
+            row.appendChild(tdYear); // adds the tdYear element to the current row
 
-                table.appendChild(row); // adds the current row to the table element
+            table.appendChild(row); // adds the current row to the table element
 
-                // creates a new table data element for the horizontal line
-                const tdLine = document.createElement("td");
-                tdLine.setAttribute("colspan", "3"); // sets the colspan attribute to the number of columns in the table
-                tdLine.innerHTML = "<hr>"; // assigns a horizontal line to the tdLine element
-                table.appendChild(tdLine); // appends the tdLine element to the table element
+            // creates a new table data element for the horizontal line
+            const tdLine = document.createElement("td");
+            tdLine.setAttribute("colspan", "3"); // sets the colspan attribute to the number of columns in the table
+            tdLine.innerHTML = "<hr>"; // assigns a horizontal line to the tdLine element
+            table.appendChild(tdLine); // appends the tdLine element to the table element
 
-                rankItem++; // increments the rankItem value by 1
-            }
+            rankItem++; // increments the rankItem value by 1
+
         })
 
         // Create a new popup element and add it to the container
@@ -233,6 +197,7 @@
             popupContainer.removeChild(popup);
         }, 3000);
     }
+
 
     // Add event listeners to each of the dropdown menus, so that the filteredSearch function is called whenever the user changes a value.
     genreSelect.addEventListener("change", filteredSearch);
