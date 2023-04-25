@@ -127,6 +127,10 @@
     /////////////////////////////////// This function is called to display a list of movies in the table.\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
     function displayMovies(results) {
 
+        // Remove any existing popups
+        popupContainer.innerHTML = '';
+
+
         // loops through each movie object in the results array
         results.forEach(function (movie) {
 
@@ -147,13 +151,13 @@
 
             // creates the HTML markup for the movie item with multiple genres
             const movieItem = `
-                <img src="https://www.themoviedb.org/t/p/original${movie.poster_path}"
-                alt="${movie.tagline}">
-                    <div  class="movie-details">
+            <img src="https://www.themoviedb.org/t/p/original${movie.poster_path}"
+            alt="${movie.tagline}">
+            <div  class="movie-details">
                     <div><h4>${movie.title}</h4></div>
                     <div><p><span class="certification">${movie.certification}</span><span id="text"> ${movie.genres}</span></p></div>
                     </div>
-              `;
+                    `;
 
             // assigns the HTML markup to the tdMovie element
             tdMovie.innerHTML = movieItem;
@@ -179,20 +183,22 @@
         })
 
         // Create a new popup element and add it to the container
+
         const popup = document.createElement("div");
         popup.className = "popup";
         if (rankItem > 1) {
             popup.textContent = `
-        ${rankItem - 1 + " RESULTS FOUND"} 
-        `;
+            ${rankItem - 1 + " RESULTS FOUND"} 
+            `;
         } else {
             popup.textContent = `
-        ${"Unfortunately, we couldn't find what you were looking for, but we're constantly improving our website to better serve you."} 
-        `;
+            ${"Unfortunately, we couldn't find what you were looking for, but we're constantly improving our website to better serve you."} 
+            `;
         }
         popupContainer.appendChild(popup);
 
         // After 2 seconds, remove the popup from the container
+
         setTimeout(() => {
             popupContainer.removeChild(popup);
         }, 3000);
