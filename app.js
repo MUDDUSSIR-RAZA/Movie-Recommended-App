@@ -16,10 +16,9 @@
     const ratingSelect = document.getElementById("rating");
     const popupContainer = document.getElementById("popup-container");
 
+
     // Get the table element from the DOM
     const table = document.getElementById("table");
-
-
 
     // Get all unique options from the movieData array by using flatMap 
     const genreOptions = [...new Set(movieData.flatMap(obj => obj.genres).filter(Boolean))];
@@ -34,7 +33,6 @@
     const ratingOptions = [...new Set(movieData.map(obj => obj.vote_average).filter(Boolean))];
 
 
-
     // Sort the genre options alphabetically using the sort() method.
     genreOptions.sort();
 
@@ -46,7 +44,6 @@
 
     // Sort the rating options in descending order
     ratingOptions.sort((a, b) => b - a);
-
 
 
     // This function takes two parameters: an array of options to add and a select element where the options will be added.
@@ -69,7 +66,6 @@
     addvalues(yearOptions, yearSelect);
     addvalues(languageOptions, languageSelect);
     addvalues(ratingOptions, ratingSelect);
-
 
 
     // Set the initial value of rankItem to 1, which will be used to display the rank of each movie in the table.
@@ -120,8 +116,6 @@
         // Display the filtered movies in the table.
         displayMovies(filteredMovies);
     }
-
-
 
 
     /////////////////////////////////// This function is called to display a list of movies in the table.\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
